@@ -21,4 +21,8 @@
   h2 {
     @apply text-2xl mb-5;
   }
+
+  a {
+    @apply hover:opacity-70 transition-all;
+  }
 }

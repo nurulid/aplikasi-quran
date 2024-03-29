@@ -1,4 +1,7 @@
 import { numberToArabic } from "number-to-arabic";
+import { notFound } from "next/navigation";
+
+export const dynamicParams = true;
 
 export async function getStaticParams() {
   const res = await fetch(
@@ -18,6 +21,11 @@ async function getSurah(id) {
       cache: "no-store",
     }
   );
+
+  if (!res.ok) {
+    notFound();
+  }
+
   return res.json();
 }
 
