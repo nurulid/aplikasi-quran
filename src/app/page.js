@@ -1,21 +1,9 @@
-import { Button } from "@nextui-org/react";
-import { Badge, Avatar } from "@nextui-org/react";
-import { User } from "lucide-react";
+import { SurahList } from "@/components/quran/surahList";
 
 export default function Home() {
   return (
-    <main className="m-5">
-      <Button color="success">Success</Button>
-
-      <User />
-
-      <Badge content="5" color="primary">
-        <Avatar
-          radius="md"
-          size="lg"
-          src="https://i.pravatar.cc/300?u=a042581f4e29026709d"
-        />
-      </Badge>
+    <main className="p-5">
+      <h2>Welcome</h2>
     </main>
   );
 }
