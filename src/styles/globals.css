@@ -4,9 +4,21 @@
 
 @layer base {
   body {
+    font-family: var(--font-inter);
     height: 100%;
     background-color: #ffffff;
     background-image:  linear-gradient(#f2f2f2 1px, transparent 1px), linear-gradient(to right, #f2f2f2 1px, #ffffff 1px);
     background-size: 20px 20px;
+  }
+
+  .font-arabic {
+    @apply text-3xl sm:text-4xl;
+    font-family: var(--font-noto-arabic);
+    line-height: 4rem;
+    direction: rtl;
+  }
+
+  h2 {
+    @apply text-2xl mb-5;
   }
 }

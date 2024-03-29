@@ -1,8 +1,16 @@
-import { Inter } from "next/font/google";
+import { Inter,  Noto_Sans_Arabic } from "next/font/google";
 import "@/styles/globals.css";
 import { Provider } from "@/components/provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter"
+});
+const notoArabic = Noto_Sans_Arabic({ 
+  subsets: ["arabic"],
+  variable: "--font-noto-arabic",
+  weight: ["300", "400"]
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} p-5`}>
+      <body className={`${inter.className} ${notoArabic.variable} m-0 p-5`}>
         <Provider>
           {children}
         </Provider>
