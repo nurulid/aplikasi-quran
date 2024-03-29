@@ -1,10 +1,13 @@
 import { Button } from "@nextui-org/react";
 import { Badge, Avatar } from "@nextui-org/react";
+import { User } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="m-5">
       <Button color="success">Success</Button>
+
+      <User />
 
       <Badge content="5" color="primary">
         <Avatar
