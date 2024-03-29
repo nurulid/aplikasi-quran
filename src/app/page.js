@@ -1,5 +1,3 @@
-import { SurahList } from "@/components/quran/surahList";
-
 export default function Home() {
   return (
     <main className="p-5">

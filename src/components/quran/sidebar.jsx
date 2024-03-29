@@ -1,5 +1,5 @@
 import React from 'react'
-import { SurahList } from './SurahList'
+import { SurahList } from './surahList'
 
 export async function Sidebar() {
   return (
