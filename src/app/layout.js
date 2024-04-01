@@ -1,6 +1,5 @@
 import { Inter,  Noto_Sans_Arabic } from "next/font/google";
 import "@/styles/globals.css";
-import { Provider } from "@/components/provider";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -21,9 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} ${notoArabic.variable} m-0 p-5`}>
-        <Provider>
-          {children}
-        </Provider>
+        {children}
       </body>
     </html>
   );
