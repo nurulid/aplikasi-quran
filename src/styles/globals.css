@@ -6,9 +6,9 @@
   body {
     font-family: var(--font-inter);
     height: 100%;
-    background-color: #ffffff;
+    /* background-color: #ffffff;
     background-image:  linear-gradient(#f2f2f2 1px, transparent 1px), linear-gradient(to right, #f2f2f2 1px, #ffffff 1px);
-    background-size: 20px 20px;
+    background-size: 20px 20px; */
   }
 
   .font-arabic {
