@@ -5,7 +5,7 @@ export default function Home() {
     <main className="p-5">
       <h2>Hello 🙂</h2>
       <p>This project is in progress, check the 
-        <Link href="/my-quran/2" className="underline"> preview.</Link>
+        <Link href="/my-quran" className="underline"> preview.</Link>
       </p>
     </main>
   );
