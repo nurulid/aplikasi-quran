@@ -3,11 +3,9 @@ import { Sidebar } from '@/components/quran/sidebar'
 
 export default function SurahLayout({children}) {
   return (
-    <div className='grid grid-cols-3'>
-      <div className='relative'>
-        <Sidebar />
-      </div>
-      <div className='col-span-2'>{children}</div>
+    <div className='h-full block lg:flex justify-between'>
+      <Sidebar />
+      <div className='h-full w-full lg:w-[calc(100%-400px)] relative'>{children}</div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { CardSurah } from "./cardSurah";
 import { SearchSurah } from "./searchSurah";
 
-const SurahList = ({listDisplay, titleOnly}) => {
+const SurahList = ({listDisplay, titleOnly, listHeight}) => {
   const [quranData, setQuranData] = useState([]);
   const [filteredQuranData, setFilteredQuranData] = useState([]);
 
@@ -28,10 +28,12 @@ const SurahList = ({listDisplay, titleOnly}) => {
   return (
     <>
       <SearchSurah setFilteredQuranData={setFilteredQuranData} quranData={quranData}/>
-      <div className={`${listDisplay}`}>
-        {filteredQuranData.map((surah) => (
-          <CardSurah key={surah.number_of_surah} surah={surah} titleOnly={titleOnly}/>
-        ))}
+      <div className={listHeight}>
+        <div className={`${listDisplay}`}>
+          {filteredQuranData.map((surah) => (
+            <CardSurah key={surah.number_of_surah} surah={surah} titleOnly={titleOnly}/>
+          ))}
+        </div>
       </div>
     </>
   );

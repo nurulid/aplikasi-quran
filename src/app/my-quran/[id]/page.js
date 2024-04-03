@@ -50,7 +50,7 @@ export default async function Page({ params }) {
           ))}
         </ul>
       </div>
-      <div className="h-[66vh] overflow-scroll px-5 scroll-smooth">
+      <div className="absolute h-[calc(100%-214px)] w-full overflow-scroll px-5 scroll-smooth">
         {surah.verses.map((verse) => (
           <div
             key={verse.number}
