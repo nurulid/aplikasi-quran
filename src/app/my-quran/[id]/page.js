@@ -52,7 +52,7 @@ export default async function Page({ params }) {
           ))}
         </ul>
       </div>
-      <div className="scroll-progress-target absolute h-[calc(100%-214px)] w-full overflow-scroll px-5 scroll-smooth">
+      <div className="scroll-progress-target absolute h-[calc(100%-214px)] w-full overflow-scroll px-0 sm:px-5 scroll-smooth">
         {surah.verses.map((verse) => (
           <div
             key={verse.number}
@@ -65,7 +65,12 @@ export default async function Page({ params }) {
                 {numberToArabic(verse.number)}
               </span>
             </p>
-            <p className="text-gray-500 leading-7">{verse.translation_id}</p>
+            <p className="text-gray-500 leading-7">
+              {verse.translation_id}
+              <span className="text-xs text-gray-400 -translate-y-[1px] inline-block ml-2">
+                {verse.number}
+              </span>
+            </p>
           </div>
         ))}
       </div>
