@@ -1,14 +1,33 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import { SquareMenu } from 'lucide-react';
 import SurahList from './surahList';
 
 export async function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <aside className="p-5 border border-dashed rounded sticky top-0 w-full max-w-[360px] h-[88vh] pb-10 overflow-hidden hidden lg:block">
-      <SurahList
-        titleOnly={true}
-        listDisplay={'space-y-3'}
-        listHeight={'h-[calc(100vh-200px)] overflow-scroll pr-2 pb-8'}
-      />
-    </aside>
+    <>
+      <span
+        onClick={toggleMenu}
+        className="block lg:hidden fixed bottom-4 left-4 bg-white p-1 z-[10] rounded-md border"
+      >
+        <SquareMenu size={30} className="" />
+      </span>
+      {isOpen && (
+        <aside className="p-5 lg:pb-10 border border-dashed rounded absolute left-0 bottom-16 lg:sticky z-[10] lg:top-0 w-full lg:max-w-[360px] h-[88vh] overflow-hidden block bg-lemonade">
+          <SurahList
+            titleOnly={true}
+            listDisplay={'space-y-3'}
+            listHeight={'h-[calc(100vh-200px)] overflow-scroll pr-2 pb-8'}
+          />
+        </aside>
+      )}
+    </>
   );
 }
