@@ -16,10 +16,9 @@
   }
 
   .font-arabic {
-    @apply text-3xl sm:text-4xl;
     font-family: var(--font-noto-arabic);
-    line-height: 4rem;
     direction: rtl;
+    @apply text-2xl sm:text-4xl leading-[3rem] sm:leading-[4rem];
   }
 
   h2 {
@@ -28,5 +27,30 @@
 
   a {
     @apply hover:opacity-70 transition-all;
+  }
+}
+
+@layer components {
+  .progress-wheel {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    transform: rotate(-90deg);
+  }
+  
+  .progress-wheel circle {
+    stroke-dashoffset: 0;
+    stroke-width: 30%;
+    fill: none;
+  }
+  
+  .progress-wheel .bg {
+    stroke: #000;
+    opacity: 0.2;
+  }
+  
+  .progress-wheel .progress {
+    stroke: #000;
+    stroke-dasharray: 0, 1;
   }
 }
