@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export const SearchSurah = ({ quranData, setFilteredQuranData }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     // Filter the Quran data based on the search term
@@ -19,7 +19,7 @@ export const SearchSurah = ({ quranData, setFilteredQuranData }) => {
     <input
       className="p-4 mb-4 block w-full"
       type="text"
-      placeholder="Search by surah name"
+      placeholder="Cari dengan nama Surah"
       value={searchTerm}
       onChange={handleSearch}
     />
