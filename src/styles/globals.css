@@ -32,15 +32,15 @@
 
 @layer components {
   .progress-wheel {
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
     transform: rotate(-90deg);
   }
   
   .progress-wheel circle {
     stroke-dashoffset: 0;
-    stroke-width: 30%;
+    stroke-width: 20%;
     fill: none;
   }
   

@@ -1,11 +1,12 @@
-import { numberToArabic } from "number-to-arabic";
-import { notFound } from "next/navigation";
+import { numberToArabic } from 'number-to-arabic';
+import { notFound } from 'next/navigation';
+import { ScrollProgress } from '@/components/quran/scrollProgress';
 
 export const dynamicParams = true;
 
 export async function getStaticParams() {
   const res = await fetch(
-    "https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${id}.json"
+    'https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${id}.json'
   );
   const allSurah = await res.json();
 
@@ -18,7 +19,7 @@ async function getSurah(id) {
   const res = await fetch(
     `https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${id}.json`,
     {
-      cache: "no-store",
+      cache: 'no-store',
     }
   );
 
@@ -33,7 +34,8 @@ export default async function Page({ params }) {
   const surah = await getSurah(params.id);
 
   return (
-    <>
+    <div>
+      <ScrollProgress />
       <div className="border-b border-black">
         <div className="mb-10 text-center">
           <div>
@@ -50,7 +52,7 @@ export default async function Page({ params }) {
           ))}
         </ul>
       </div>
-      <div className="absolute h-[calc(100%-214px)] w-full overflow-scroll px-5 scroll-smooth">
+      <div className="ayat-list absolute h-[calc(100%-214px)] w-full overflow-scroll px-5 scroll-smooth">
         {surah.verses.map((verse) => (
           <div
             key={verse.number}
@@ -67,6 +69,6 @@ export default async function Page({ params }) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
