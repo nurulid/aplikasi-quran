@@ -35,7 +35,7 @@ export default async function Page({ params }) {
 
   return (
     <div>
-      <ScrollProgress />
+      <ScrollProgress isOverflowScroll={true}/>
       <div className="border-b border-black">
         <div className="mb-10 text-center">
           <div>
@@ -52,7 +52,7 @@ export default async function Page({ params }) {
           ))}
         </ul>
       </div>
-      <div className="ayat-list absolute h-[calc(100%-214px)] w-full overflow-scroll px-5 scroll-smooth">
+      <div className="scroll-progress-target absolute h-[calc(100%-214px)] w-full overflow-scroll px-5 scroll-smooth">
         {surah.verses.map((verse) => (
           <div
             key={verse.number}
