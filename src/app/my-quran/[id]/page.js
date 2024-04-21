@@ -1,6 +1,7 @@
-import { numberToArabic } from 'number-to-arabic';
 import { notFound } from 'next/navigation';
+import { numberToArabic } from 'number-to-arabic';
 import { ScrollProgress } from '@/components/quran/scrollProgress';
+import { AyatList } from '@/components/quran/ayatList';
 
 export const dynamicParams = true;
 
@@ -44,13 +45,15 @@ export default async function Page({ params }) {
           </div>
         </div>
         <h3 className="text-center mb-4 text-xl">Ayat</h3>
-        <ul className="flex gap-2 overflow-scroll scroll-smooth py-2 border-t border-dashed border-gray-300 shadow-md -ml-5 sm:ml-0 -mr-5 sm:mr-0">
+        <AyatList verses={surah.verses}/>
+        {/* <ul className="flex gap-2 overflow-scroll scroll-smooth py-2 border-t border-dashed border-gray-300 shadow-md -ml-5 sm:ml-0 -mr-5 sm:mr-0">
           {surah.verses.map((verse) => (
             <li key={verse.number} className="px-4 py-2">
-              <a href={`#${verse.number}`}>{verse.number}</a>
+              <a href={`#${verse.number}`}>{verse.number}</a> 
+              <LinkAyat link={`#${verse.number}`} title={verse.number} />
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
       <div className="scroll-progress-target absolute h-[calc(100%-214px)] w-full overflow-scroll px-0 sm:px-5 scroll-smooth">
         {surah.verses.map((verse) => (
