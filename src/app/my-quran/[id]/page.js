@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
-import { numberToArabic } from 'number-to-arabic';
 import { ScrollProgress } from '@/components/quran/scrollProgress';
 import { AyatList } from '@/components/quran/ayatList';
+import { SingleSurah } from '@/components/quran/singleSurah';
 
 export const dynamicParams = true;
 
@@ -20,7 +20,9 @@ async function getSurah(id) {
   const res = await fetch(
     `https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/${id}.json`,
     {
-      cache: 'no-store',
+      next: {
+        revalidate: 30,
+      },
     }
   );
 
@@ -33,6 +35,8 @@ async function getSurah(id) {
 
 export default async function Page({ params }) {
   const surah = await getSurah(params.id);
+  const tafsirSurah = surah.tafsir.id.kemenag;
+  // console.log(surah.tafsir.id.kemenag.text)
 
   return (
     <div>
@@ -44,39 +48,12 @@ export default async function Page({ params }) {
             <p className="text-gray-500">{surah.name_translations.id}</p>
           </div>
         </div>
+
+        <audio src={surah.recitations[1].audio_url} controls></audio>
         <h3 className="text-center mb-4 text-xl">Ayat</h3>
-        <AyatList verses={surah.verses}/>
-        {/* <ul className="flex gap-2 overflow-scroll scroll-smooth py-2 border-t border-dashed border-gray-300 shadow-md -ml-5 sm:ml-0 -mr-5 sm:mr-0">
-          {surah.verses.map((verse) => (
-            <li key={verse.number} className="px-4 py-2">
-              <a href={`#${verse.number}`}>{verse.number}</a> 
-              <LinkAyat link={`#${verse.number}`} title={verse.number} />
-            </li>
-          ))}
-        </ul> */}
+        <AyatList verses={surah.verses} />
       </div>
-      <div className="scroll-progress-target absolute h-[calc(100%-214px)] w-full overflow-scroll px-0 sm:px-5 scroll-smooth">
-        {surah.verses.map((verse) => (
-          <div
-            key={verse.number}
-            id={verse.number}
-            className="py-5 mb-5 border-b border-gray-100"
-          >
-            <p className="font-arabic mb-6 relative">
-              <span className="pl-8">{verse.text}</span>
-              <span className="text-base sm:text-xl h-[30px] w-[30px] text-center leading-[30px] border border-gray-400 rounded-full absolute bottom-3 left-0">
-                {numberToArabic(verse.number)}
-              </span>
-            </p>
-            <p className="text-gray-500 leading-7">
-              {verse.translation_id}
-              <span className="text-xs text-gray-400 -translate-y-[1px] inline-block ml-2">
-                {verse.number}
-              </span>
-            </p>
-          </div>
-        ))}
-      </div>
+      <SingleSurah surah={surah} tafsirSurah={tafsirSurah}/>
     </div>
   );
 }

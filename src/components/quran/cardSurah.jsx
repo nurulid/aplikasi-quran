@@ -10,11 +10,8 @@ export const CardSurah = ({ surah, titleOnly }) => {
       href={`/my-quran/${surah.number_of_surah}`}
       className="block"
     >
-      <motion.div
+      <div
         className="py-2 px-4 border rounded flex items-center gap-4 w-full bg-white/80 group hover:border-primary"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
       >
         <div className="w-[50px] h-auto text-center bg-primary/10 rounded-sm p-1">
           <h4>{surah.number_of_surah}</h4>
@@ -41,7 +38,7 @@ export const CardSurah = ({ surah, titleOnly }) => {
             </small>
           </div>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 };

@@ -19,7 +19,7 @@ export async function Sidebar() {
       >
         <SquareMenu size={30} className="" />
       </span>
-      <aside className="p-5 lg:pb-10 border border-dashed rounded  left-0 bottom-16 lg:sticky z-[10] lg:top-0 w-full lg:max-w-[360px] h-[88vh] overflow-hidden hidden lg:block bg-lemonade">
+      <aside className="p-5 pb-0 border border-dashed rounded  left-0 bottom-16 lg:sticky z-[10] lg:top-0 w-full lg:max-w-[360px] h-[92vh] overflow-hidden hidden lg:block bg-lemonade">
         <SurahList
           titleOnly={true}
           listDisplay={'space-y-3'}
@@ -27,7 +27,7 @@ export async function Sidebar() {
         />
       </aside>
       {isOpen && (
-        <aside className="p-5 lg:pb-10 border border-dashed rounded absolute left-0 bottom-16 lg:sticky z-[10] lg:top-0 w-full lg:max-w-[360px] h-[88vh] overflow-hidden block bg-lemonade">
+        <aside className="p-5 pb-0 border border-dashed rounded absolute left-0 bottom-16 lg:sticky z-[10] lg:top-0 w-full lg:max-w-[360px] h-[92vh] overflow-hidden block bg-lemonade">
           <SurahList
             titleOnly={true}
             listDisplay={'space-y-3'}
