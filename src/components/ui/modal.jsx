@@ -30,7 +30,6 @@ export const Moodal = ({
         ></div>
         <div className="modal-box max-w-3xl p-10 pb-0">
           <form method="dialog">
-            {/* if there is a button in form, it will close the modal */}
             <button
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cursor-pointer"
               aria-label="close"

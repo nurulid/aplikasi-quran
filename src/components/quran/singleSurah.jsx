@@ -70,7 +70,7 @@ export const SingleSurah = ({ surah, tafsirSurah }) => {
           modalHeader={
             <ModalHeader
               surah={surah.name}
-              // ayah={selectedVerse.number}
+              ayah={selectedVerse.number}
               source={tafsirSurah.source}
             />
           }
