@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 import { numberToArabic } from 'number-to-arabic';
 import { Moodal } from '@/components/ui/modal';
 import { useState, useEffect } from 'react';
+import { AudioPlayer } from '../ui/audioPlayer';
 
-const ModalHeader = ({ surah, ayah, source }) => {
+const TafsirHeader = ({ surah, ayah, source }) => {
   return (
     <>
       <h3 className="text-lg font-semibold mb-2">
@@ -16,9 +17,10 @@ const ModalHeader = ({ surah, ayah, source }) => {
   );
 };
 
-export const SingleSurah = ({ surah, tafsirSurah }) => {
+export const VerseList = ({ surah, tafsirSurah }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedVerse, setSelectedVerse] = useState(null);
+  const surahAudio = surah.recitations[1].audio_url;
 
   const handleModal = (verse) => {
     setSelectedVerse(verse);
@@ -61,14 +63,16 @@ export const SingleSurah = ({ surah, tafsirSurah }) => {
         ))}
       </motion.div>
 
+      <AudioPlayer url={surahAudio}/>
+      
       {modalOpen && (
         <Moodal
           verse={selectedVerse}
           modalOpen={modalOpen}
           closeModal={() => setModalOpen(false)}
           tafsirSurah={tafsirSurah}
-          modalHeader={
-            <ModalHeader
+          tafsirHeader={
+            <TafsirHeader
               surah={surah.name}
               ayah={selectedVerse.number}
               source={tafsirSurah.source}

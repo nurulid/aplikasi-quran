@@ -17,7 +17,7 @@ export const Moodal = ({
   verse,
   modalOpen,
   closeModal,
-  modalHeader,
+  tafsirHeader,
   tafsirSurah,
 }) => {
   // console.log(verse);
@@ -38,7 +38,7 @@ export const Moodal = ({
               ✕
             </button>
           </form>
-          <div>{modalHeader}</div>
+          <div>{tafsirHeader}</div>
           <div
             className="py-4"
             dangerouslySetInnerHTML={{

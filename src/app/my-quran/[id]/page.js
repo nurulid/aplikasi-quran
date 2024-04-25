@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ScrollProgress } from '@/components/quran/scrollProgress';
 import { AyatList } from '@/components/quran/ayatList';
-import { SingleSurah } from '@/components/quran/singleSurah';
+import { VerseList } from '@/components/quran/verseList';
 
 export const dynamicParams = true;
 
@@ -36,7 +36,6 @@ async function getSurah(id) {
 export default async function Page({ params }) {
   const surah = await getSurah(params.id);
   const tafsirSurah = surah.tafsir.id.kemenag;
-  // console.log(surah.tafsir.id.kemenag.text)
 
   return (
     <div>
@@ -49,11 +48,11 @@ export default async function Page({ params }) {
           </div>
         </div>
 
-        <audio src={surah.recitations[1].audio_url} controls></audio>
+        
         <h3 className="text-center mb-4 text-xl">Ayat</h3>
         <AyatList verses={surah.verses} />
       </div>
-      <SingleSurah surah={surah} tafsirSurah={tafsirSurah}/>
+      <VerseList surah={surah} tafsirSurah={tafsirSurah}/>
     </div>
   );
 }
