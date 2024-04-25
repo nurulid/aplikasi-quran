@@ -13,27 +13,38 @@ const insertLineBreaks = (text) => {
   return paragraphs.join('');
 };
 
-export const Moodal = ({ modalId, modalContent, btnTitle, modalHeader }) => {
+export const Moodal = ({
+  verse,
+  modalOpen,
+  closeModal,
+  modalHeader,
+  tafsirSurah,
+}) => {
+  // console.log(verse);
   return (
     <>
-      <button
-        className="btn btn-outline btn-sm"
-        onClick={() => document.getElementById(`modal_${modalId}`).showModal()}
-      >
-        {btnTitle}
-      </button>
-      <dialog id={`modal_${modalId}`} className="modal">
+      <dialog className="modal" open={modalOpen}>
+        <div
+          onClick={closeModal}
+          className="bg-black/30 backdrop-blur absolute inset-0"
+        ></div>
         <div className="modal-box max-w-3xl p-10 pb-0">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            <button
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cursor-pointer"
+              aria-label="close"
+              onClick={closeModal}
+            >
               ✕
             </button>
           </form>
           <div>{modalHeader}</div>
           <div
             className="py-4"
-            dangerouslySetInnerHTML={{ __html: insertLineBreaks(modalContent) }}
+            dangerouslySetInnerHTML={{
+              __html: insertLineBreaks(tafsirSurah.text[verse?.number]),
+            }}
           />
         </div>
       </dialog>
