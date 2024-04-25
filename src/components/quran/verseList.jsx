@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { numberToArabic } from 'number-to-arabic';
-import { Moodal } from '@/components/ui/modal';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { wrapInParagraphs } from '@/lib/utils';
+import { Modal } from '@/components/ui/modal';
 import { AudioPlayer } from '../ui/audioPlayer';
 
 const TafsirHeader = ({ surah, ayah, source }) => {
@@ -63,15 +64,15 @@ export const VerseList = ({ surah, tafsirSurah }) => {
         ))}
       </motion.div>
 
-      <AudioPlayer url={surahAudio}/>
-      
+      <AudioPlayer url={surahAudio} />
+
       {modalOpen && (
-        <Moodal
-          verse={selectedVerse}
+        <Modal
+          content={wrapInParagraphs(tafsirSurah.text[selectedVerse?.number])}
+          innerHTML={true}
           modalOpen={modalOpen}
           closeModal={() => setModalOpen(false)}
-          tafsirSurah={tafsirSurah}
-          tafsirHeader={
+          modalHeader={
             <TafsirHeader
               surah={surah.name}
               ayah={selectedVerse.number}

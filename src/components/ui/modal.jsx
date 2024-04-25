@@ -1,24 +1,11 @@
 'use client';
 
-const insertLineBreaks = (text) => {
-  const sentences = text.split('. ');
-  const paragraphs = [];
-
-  for (let i = 0; i < sentences.length; i += 4) {
-    const chunk = sentences.slice(i, i + 4);
-    const paragraph = chunk.join('. ') + '.';
-    paragraphs.push(`<p style='margin-bottom: 20px;'>${paragraph}</p>`);
-  }
-
-  return paragraphs.join('');
-};
-
-export const Moodal = ({
-  verse,
+export const Modal = ({
+  content,
+  innerHTML,
   modalOpen,
   closeModal,
-  tafsirHeader,
-  tafsirSurah,
+  modalHeader,
 }) => {
   // console.log(verse);
   return (
@@ -38,13 +25,17 @@ export const Moodal = ({
               ✕
             </button>
           </form>
-          <div>{tafsirHeader}</div>
+          <div>{modalHeader}</div>
+          {innerHTML ? (
           <div
             className="py-4"
             dangerouslySetInnerHTML={{
-              __html: insertLineBreaks(tafsirSurah.text[verse?.number]),
+              __html: content,
             }}
           />
+          ) : (
+            <div>{content}</div>
+          )}
         </div>
       </dialog>
     </>
