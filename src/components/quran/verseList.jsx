@@ -21,15 +21,39 @@ const TafsirHeader = ({ surah, ayah, source }) => {
 export const VerseList = ({ surah, tafsirSurah }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedVerse, setSelectedVerse] = useState(null);
-  const surahAudio = surah.recitations[1].audio_url;
+  const [audio, setAudio] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(false);
+
+  const surahRecitations = surah.recitations;
+  const surahAudio = surah.recitations[audio].audio_url;
 
   const handleModal = (verse) => {
     setSelectedVerse(verse);
     setModalOpen(true);
   };
 
+  const handleSurahAudio = (id) => {
+    setAudio(id);
+    setAutoPlay(true)
+  };
+ 
   return (
     <>
+      <div className="flex flex-wrap gap-3">
+        {surahRecitations.map((item, id) => (
+          <span
+            key={id}
+            onClick={() => handleSurahAudio(id)}
+            className={[
+              audio === id && 'bg-primary/30 text-black',
+              'px-3 py-1 rounded cursor-pointer text-nowrap',
+              'border border-gray-300 bg-black text-white',
+            ].join(' ')}
+          >
+            {item.name}
+          </span>
+        ))}
+      </div>
       <motion.div
         className="scroll-progress-target absolute h-[calc(100%-204px)] w-full overflow-scroll px-0 sm:px-5 scroll-smooth"
         initial={{ opacity: 0, y: -20 }}
@@ -64,7 +88,7 @@ export const VerseList = ({ surah, tafsirSurah }) => {
         ))}
       </motion.div>
 
-      <AudioPlayer url={surahAudio} />
+      <AudioPlayer url={surahAudio} autoPlay={autoPlay}/>
 
       {modalOpen && (
         <Modal

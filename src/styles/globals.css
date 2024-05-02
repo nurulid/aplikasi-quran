@@ -51,7 +51,7 @@
     stroke-dasharray: 0, 1;
   }
 
-  .paragraph:last-child span{
+  .paragraph:last-child > span{
     @apply hidden;
   }
 }
