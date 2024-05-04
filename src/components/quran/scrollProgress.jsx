@@ -29,7 +29,7 @@ export const ScrollProgress = ({ isOverflowScroll }) => {
       width="50"
       height="50"
       viewBox="0 0 100 100"
-      className={`progress-wheel ${isOverflowScroll ? "absolute top-0 left-0" : "fixed top-[20px] left-[20px]"}`}
+      className={`progress-wheel ${isOverflowScroll ? "absolute top-4 left-4" : "fixed top-[20px] left-[20px]"}`}
     >
       <circle cx="50" cy="50" r="30" pathLength="1" className="bg" />
       <circle cx="50" cy="50" r="30" pathLength="1" className="progress" />

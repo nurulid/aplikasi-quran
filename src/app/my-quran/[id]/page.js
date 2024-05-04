@@ -38,21 +38,17 @@ export default async function Page({ params }) {
   const tafsirSurah = surah.tafsir.id.kemenag;
 
   return (
-    <div>
+    <>
       <ScrollProgress isOverflowScroll={true} />
-      <div className="">
-        <div className="mb-10 text-center">
-          <div>
-            <h3 className="text-4xl mb-2">{surah.name}</h3>
-            <p className="text-gray-500">{surah.name_translations.id}</p>
-          </div>
+      <div className="p-5">
+        <div className="mb-4 md:mb-10 text-center">
+          <h3 className="text-xl md:text-4xl mb-0 md:mb-2">{surah.name}</h3>
+          <p className="text-gray-500">{surah.name_translations.id}</p>
         </div>
-
-        
-        <h3 className="text-center mb-4 text-xl">Ayat</h3>
-        <AyatList verses={surah.verses} />
       </div>
-      <VerseList surah={surah} tafsirSurah={tafsirSurah}/>
-    </div>
+      <h3 className="text-center mb-4 text-sm">Ayat</h3>
+      <AyatList verses={surah.verses} />
+      <VerseList surah={surah} tafsirSurah={tafsirSurah} />
+    </>
   );
 }
