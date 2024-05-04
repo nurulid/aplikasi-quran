@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="lemonade">
-      <body className={`${inter.className} ${notoArabic.variable} m-0 p-5`}>
+      <body className={`${inter.className} ${notoArabic.variable}`}>
         {children}
       </body>
     </html>
