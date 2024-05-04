@@ -1,16 +1,45 @@
 'use client';
 
 import React, { useState } from 'react';
-import { SquareMenu } from 'lucide-react';
+import {
+  BookOpen,
+  PlaySquareIcon,
+  Settings2,
+} from 'lucide-react';
 import SurahList from './surahList';
+
+const Navigation = () => {
+  return (
+    <div class="btm-nav bg-white z-[10] h-12 max-w-4xl w-full mx-auto fixed bottom-0 sm:bottom-4 shadow-md">
+      <button class="text-primary group">
+        <input id="my-drawer" type="checkbox" className="drawer-toggle " />
+        <label htmlFor="my-drawer" className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full">
+          <BookOpen />
+        </label>
+      </button>
+      <button class="text-primary" disabled>
+        <PlaySquareIcon />
+      </button>
+      <button class="text-primary" disabled>
+        <Settings2 />
+      </button>
+    </div>
+  );
+};
 
 const MobileSidebar = () => {
   return (
-    <aside className="p-5 pb-0 border border-dashed rounded absolute left-0 bottom-16 lg:sticky z-[10] lg:top-0 w-full lg:max-w-[360px] h-[92vh] overflow-hidden block bg-lemonade">
+    <aside
+      className={[
+        'p-5 pb-0 border border-dashed rounded bg-lemonade',
+        'absolute left-0 top-0 z-[9]',
+        'w-full h-[calc(100vh-80px)]',
+      ].join(' ')}
+    >
       <SurahList
         titleOnly={true}
         listDisplay={'space-y-3'}
-        listHeight={'h-[calc(100vh-200px)] overflow-scroll pr-2 pb-8'}
+        listHeight={'h-full overflow-scroll pr-2 pb-8'}
       />
     </aside>
   );
@@ -20,25 +49,32 @@ export async function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(true);
+    setIsOpen(!isOpen);
   };
 
   return (
     <>
-      <span
-        onClick={toggleMenu}
-        className="block lg:hidden fixed bottom-4 left-4 bg-white p-1 z-[10] rounded-md border"
-      >
-        <SquareMenu size={30} className="" />
-      </span>
-      <aside className="p-5 pb-0 border border-dashed rounded  left-0 bottom-16 lg:sticky z-[10] lg:top-0 w-full lg:max-w-[360px] h-[92vh] overflow-hidden hidden lg:block bg-lemonade">
-        <SurahList
-          titleOnly={true}
-          listDisplay={'space-y-3'}
-          listHeight={'h-[calc(100vh-200px)] overflow-scroll pr-2 pb-8'}
-        />
-      </aside>
-      {isOpen && <MobileSidebar />}
+      <div className="drawer z-10 ">
+        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-side">
+          <label
+            htmlFor="my-drawer"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <div className="menu w-80 min-h-full bg-base-200 text-base-content relative p-0">
+            {/* Sidebar content here */}
+            <SurahList
+              titleOnly={true}
+              listDisplay={'space-y-3'}
+              listHeight={'overflow-scroll pb-16'}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <Navigation />
     </>
   );
 }
