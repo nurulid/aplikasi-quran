@@ -16,12 +16,14 @@ export const SearchSurah = ({ quranData, setFilteredQuranData }) => {
   };
 
   return (
-    <input
-      className="p-4 mb-4 block w-full"
-      type="text"
-      placeholder="Cari dengan nama Surah"
-      value={searchTerm}
-      onChange={handleSearch}
-    />
+    <div className='sticky top-0 p-4 z-[11] bg-lemonade'>
+      <input
+        className="p-4 block w-full border"
+        type="text"
+        placeholder="Cari dengan nama Surah"
+        value={searchTerm}
+        onChange={handleSearch}
+      />
+    </div>
   );
 };

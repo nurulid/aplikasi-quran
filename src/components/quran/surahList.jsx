@@ -28,7 +28,7 @@ const SurahList = ({listDisplay, titleOnly, listHeight}) => {
   return (
     <>
       <SearchSurah setFilteredQuranData={setFilteredQuranData} quranData={quranData}/>
-      <div className={listHeight}>
+      <div className={`p-4 ${listHeight}`}>
         <div className={`${listDisplay}`}>
           {filteredQuranData.map((surah) => (
             <CardSurah key={surah.number_of_surah} surah={surah} titleOnly={titleOnly}/>

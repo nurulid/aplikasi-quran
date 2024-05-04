@@ -7,7 +7,7 @@ export default function Page() {
       <SurahList
         titleOnly={false}
         listDisplay={'grid sm:grid-cols-2 md:grid-cols-3 gap-4'}
-        listHeight={'h-[calc(100vh-175px)] overflow-scroll pr-2'}
+        listHeight={'h-screen overflow-scroll pr-2'}
       />
     </>
   );
