@@ -39,7 +39,7 @@ export const VerseList = ({ surah, tafsirSurah }) => {
  
   return (
     <>
-      <div className="flex flex-wrap justify-center py-2 gap-3 text-xs">
+      <div className="flex flex-wrap justify-center py-2 gap-x-2 gap-y-1 text-xs">
         {surahRecitations.map((item, id) => (
           <span
             key={id}

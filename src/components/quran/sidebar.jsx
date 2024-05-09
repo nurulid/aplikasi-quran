@@ -10,17 +10,17 @@ import SurahList from './surahList';
 
 const Navigation = () => {
   return (
-    <div class="btm-nav bg-white z-[10] h-12 max-w-4xl w-full mx-auto fixed bottom-0 sm:bottom-4 shadow-md">
-      <button class="text-primary group">
+    <div className="btm-nav bg-white z-[10] h-12 max-w-4xl w-full mx-auto fixed bottom-0 sm:bottom-4 shadow-md">
+      <button className="text-primary group">
         <input id="my-drawer" type="checkbox" className="drawer-toggle " />
         <label htmlFor="my-drawer" className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full">
           <BookOpen />
         </label>
       </button>
-      <button class="text-primary" disabled>
+      <button className="text-primary" disabled>
         <PlaySquareIcon />
       </button>
-      <button class="text-primary" disabled>
+      <button className="text-primary" disabled>
         <Settings2 />
       </button>
     </div>

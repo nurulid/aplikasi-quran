@@ -14,7 +14,7 @@ export const LinkAyat = ({ verse, selected, setSelected }) => {
       href={`#${verse.number}`}
       // style={{ marginTop: "10px", backgroundColor: `${color}` }}
       onClick={getLinkRef}
-      className={`py-4 px-5 ${selected === verse.number ? 'active text-primary bg-primary/10' : ''}`}
+      className={`py-2 px-5 inline-block ${selected === verse.number ? 'active text-primary bg-primary/10' : ''}`}
     >
       {verse.number}
     </Link>

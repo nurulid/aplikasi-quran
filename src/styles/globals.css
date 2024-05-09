@@ -51,7 +51,15 @@
     stroke-dasharray: 0, 1;
   }
 
+  .paragraph {
+    @apply text-justify;
+  }
+
   .paragraph:last-child > span{
     @apply hidden;
+  }
+
+  .paragraph:last-child {
+    @apply pb-6 !mb-1 border-b border-dashed border-gray-500;
   }
 }

@@ -15,7 +15,7 @@ export const Modal = ({
           onClick={closeModal}
           className="bg-black/30 backdrop-blur absolute inset-0"
         ></div>
-        <div className="modal-box max-w-3xl p-10 pb-0">
+        <div className="modal-box max-w-3xl p-6 md:p-10 pb-0">
           <form method="dialog">
             <button
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cursor-pointer"
