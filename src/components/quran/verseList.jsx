@@ -64,7 +64,7 @@ export const VerseList = ({ surah, tafsirSurah }) => {
           <div
             key={verse.number}
             id={verse.number}
-            className="py-5 mb-5 border-b border-gray-100"
+            className="py-5 mb-5 border-b border-primary/10"
           >
             <p className="font-arabic mb-6 relative pl-5">
               <span className="pl-2 inline">{verse.text}</span>
