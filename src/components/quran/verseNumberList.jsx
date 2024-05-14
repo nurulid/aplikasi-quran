@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { LinkAyat } from './linkAyat';
+import { VerseNumberLink } from './verseNumberLink';
 
-export const AyatList = ({ verses }) => {
+export const VerseNumberList = ({ verses }) => {
   const [selected, setSelected] = useState(1);
 
   return (
@@ -11,7 +11,7 @@ export const AyatList = ({ verses }) => {
       <li className="py-2 px-4 text-primary z-[2] sticky left-0 bg-lemonade">Ayat:</li>
       {verses?.map((verse) => (
         <li key={verse.number}>
-          <LinkAyat
+          <VerseNumberLink
             verse={verse}
             selected={selected}
             setSelected={setSelected}

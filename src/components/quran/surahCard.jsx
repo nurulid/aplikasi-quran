@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export const CardSurah = ({ surah, titleOnly }) => {
+export const SurahCard = ({ surah, titleOnly }) => {
   return (
     <Link
       href={`/my-quran/${surah.number_of_surah}`}

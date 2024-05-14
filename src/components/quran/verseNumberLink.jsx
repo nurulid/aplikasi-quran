@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export const LinkAyat = ({ verse, selected, setSelected }) => {
+export const VerseNumberLink = ({ verse, selected, setSelected }) => {
   // const color = selected === verse.number ? "green" : "red";
 
   const getLinkRef = () => {

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { ScrollProgress } from '@/components/quran/scrollProgress';
-import { AyatList } from '@/components/quran/ayatList';
+import { VerseNumberList } from '@/components/quran/verseNumberList';
 import { VerseList } from '@/components/quran/verseList';
 
 export const dynamicParams = true;
@@ -44,7 +44,7 @@ export default async function Page({ params }) {
         <h3 className="text-xl md:text-2xl mb-0 md:mb-1">{surah.name}</h3>
         <p className="text-sm sm:text-base text-gray-500">{surah.name_translations.id}</p>
       </div>
-      <AyatList verses={surah.verses} />
+      <VerseNumberList verses={surah.verses} />
       <VerseList surah={surah} tafsirSurah={tafsirSurah} />
     </>
   );

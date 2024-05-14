@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { CardSurah } from "./cardSurah";
-import { SearchSurah } from "./searchSurah";
+import { SurahCard } from "./surahCard";
+import { SurahSearch } from "./surahSearch";
 
 const SurahList = ({listDisplay, titleOnly, listHeight}) => {
   const [quranData, setQuranData] = useState([]);
@@ -27,11 +27,11 @@ const SurahList = ({listDisplay, titleOnly, listHeight}) => {
 
   return (
     <>
-      <SearchSurah setFilteredQuranData={setFilteredQuranData} quranData={quranData}/>
+      <SurahSearch setFilteredQuranData={setFilteredQuranData} quranData={quranData}/>
       <div className={`p-4 ${listHeight}`}>
         <div className={`${listDisplay}`}>
           {filteredQuranData.map((surah) => (
-            <CardSurah key={surah.number_of_surah} surah={surah} titleOnly={titleOnly}/>
+            <SurahCard key={surah.number_of_surah} surah={surah} titleOnly={titleOnly}/>
           ))}
         </div>
       </div>

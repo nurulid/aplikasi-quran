@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const SearchSurah = ({ quranData, setFilteredQuranData }) => {
+export const SurahSearch = ({ quranData, setFilteredQuranData }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
