@@ -8,7 +8,7 @@ export const VerseNumberList = ({ verses }) => {
 
   return (
     <ul className="list-ayat flex gap-2 overflow-x-scroll scroll-smooth border-t border-dashed border-gray-300 shadow-md">
-      <li className="py-2 px-4 text-primary z-[2] sticky left-0 bg-lemonade">Ayat:</li>
+      <li className="py-2 px-4 text-primary z-[2] sticky left-0 bg-base-100">Ayat:</li>
       {verses?.map((verse) => (
         <li key={verse.number}>
           <VerseNumberLink

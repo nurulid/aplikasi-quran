@@ -7,10 +7,11 @@ import {
   Settings2,
 } from 'lucide-react';
 import SurahList from './surahList';
+import { ThemeSwitcher } from '../ui/themeSwitcher';
 
 const Navigation = () => {
   return (
-    <div className="btm-nav bg-white z-[10] h-12 max-w-4xl w-full mx-auto fixed bottom-0 sm:bottom-4 shadow-md">
+    <div className="btm-nav bg-base-100 z-[10] h-12 max-w-4xl w-full mx-auto fixed bottom-0 sm:bottom-4 shadow-md">
       <button className="text-primary group">
         <input id="my-drawer" type="checkbox" className="drawer-toggle " />
         <label htmlFor="my-drawer" className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full">
@@ -63,6 +64,7 @@ export async function Sidebar() {
             className="drawer-overlay"
           ></label>
           <div className="menu w-80 min-h-full bg-base-200 text-base-content relative p-0">
+            <ThemeSwitcher />
             {/* Sidebar content here */}
             <SurahList
               titleOnly={true}

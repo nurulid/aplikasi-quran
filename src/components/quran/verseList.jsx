@@ -13,7 +13,7 @@ const TafsirHeader = ({ surah, ayah, source }) => {
       <h3 className="text-lg font-semibold mb-2">
         Tafsir dari surah {surah} : ayat {ayah}
       </h3>
-      <p className="text-gray-500 text-xs">Sumber tafsir: {source}</p>
+      <p className="text-gray-400 text-xs">Sumber tafsir: {source}</p>
     </>
   );
 };
@@ -72,8 +72,8 @@ export const VerseList = ({ surah, tafsirSurah }) => {
                 {numberToArabic(verse.number)}
               </span>
             </p>
-            <p className="text-gray-500 leading-7 mb-3">
-              <span className="text-sm text-gray-400 -translate-y-[1px] inline-block mr-1">
+            <p className="text-gray-400 leading-7 mb-3">
+              <span className="text-sm text-gray-500 -translate-y-[1px] inline-block mr-1">
                 {verse.number}.
               </span>
               {verse.translation_id}

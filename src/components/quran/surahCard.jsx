@@ -11,7 +11,7 @@ export const SurahCard = ({ surah, titleOnly }) => {
       className="block"
     >
       <div
-        className="py-2 px-4 border rounded flex items-center gap-4 w-full bg-white/80 group hover:border-primary"
+        className="py-2 px-4 border border-neutral rounded flex items-center gap-4 w-full bg-base-100 group hover:border-secondary"
       >
         <div className="w-[50px] h-auto text-center bg-primary/10 rounded-sm p-1">
           <h4>{surah.number_of_surah}</h4>
@@ -22,14 +22,14 @@ export const SurahCard = ({ surah, titleOnly }) => {
               {surah.name}
             </h3>
             {!titleOnly ? (
-              <p className="text-xs text-gray-500 group-hover:text-primary">
+              <p className="text-xs text-gray-400 group-hover:text-primary">
                 {surah.name_translations.id}
               </p>
             ) : null}
           </div>
           <div className="text-right">
             {!titleOnly ? (
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-400">
                 {surah.name_translations.ar}
               </p>
             ) : null}

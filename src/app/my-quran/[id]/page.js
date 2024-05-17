@@ -42,7 +42,7 @@ export default async function Page({ params }) {
       <ScrollProgress isOverflowScroll={true} />
       <div className="mb-2 md:mb-4 p-5 text-center">
         <h3 className="text-xl md:text-2xl mb-0 md:mb-1">{surah.name}</h3>
-        <p className="text-sm sm:text-base text-gray-500">{surah.name_translations.id}</p>
+        <p className="text-sm sm:text-base text-gray-400">{surah.name_translations.id}</p>
       </div>
       <VerseNumberList verses={surah.verses} />
       <VerseList surah={surah} tafsirSurah={tafsirSurah} />
