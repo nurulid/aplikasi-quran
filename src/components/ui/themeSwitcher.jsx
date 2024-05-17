@@ -4,7 +4,21 @@ import { useEffect } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 
 const themeColors = ['lemonade', 'forest', 'dim', 'lofi'];
-const arabFonts = ['font-arabic', 'fontIbm', 'fontKufi'];
+// const arabFonts = ['font-arabic', 'fontIbm', 'fontKufi'];
+const arabFonts = [
+  {
+    name: 'Noto Sans Arabic',
+    value: 'font-arabic',
+  },
+  {
+    name: 'IBM Plex Sans Arabic',
+    value: 'fontIbm',
+  },
+  {
+    name: 'Noto Kufi Arabic',
+    value: 'fontKufi',
+  },
+]
 
 export const ThemeSwitcher = () => {
   const { changeTheme, changeFont } = useTheme();
@@ -36,7 +50,7 @@ export const ThemeSwitcher = () => {
   return (
     <>
       <h3 className="mb-3 text-lg">Ganti Tema:</h3>
-      <div className="flex gap-3 mb-6">
+      <div className="flex gap-3 mb-8">
         {themeColors.map((theme) => (
           <button
             className="p-2 border hover:opacity-85 transition-all rounded capitalize"
@@ -50,14 +64,14 @@ export const ThemeSwitcher = () => {
       </div>
 
       <h3 className="mb-3 text-lg">Ganti Font Arab:</h3>
-      <div className="flex gap-3 mb-6">
-        {arabFonts.map((font) => (
+      <div className="flex flex-col gap-2 mb-8">
+        {arabFonts.map(({ name, value }, i) => (
           <button
             className="p-2 border hover:opacity-85 transition-all rounded capitalize"
-            key={font}
-            onClick={() => toggleFont(font)}
+            key={i}
+            onClick={() => toggleFont(value)}
           >
-            {font}
+            {name}
           </button>
         ))}
       </div>
