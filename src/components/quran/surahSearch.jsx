@@ -16,9 +16,9 @@ export const SurahSearch = ({ quranData, setFilteredQuranData }) => {
   };
 
   return (
-    <div className='sticky top-0 p-4 z-[11] bg-base-100'>
+    <div className='sticky top-0 p-4 z-[11] bg-base-100 shadow-sm'>
       <input
-        className="p-4 block w-full border border-neutral"
+        className="p-4 block w-full border border-neutral bg-base-100 rounded"
         type="text"
         placeholder="Cari dengan nama Surah"
         value={searchTerm}
