@@ -4,20 +4,10 @@ import { useEffect } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 
 const themeColors = ['lemonade', 'forest', 'dim', 'lofi'];
-// const arabFonts = ['font-arabic', 'fontIbm', 'fontKufi'];
 const arabFonts = [
-  {
-    name: 'Noto Sans Arabic',
-    value: 'font-arabic',
-  },
-  {
-    name: 'IBM Plex Sans Arabic',
-    value: 'fontIbm',
-  },
-  {
-    name: 'Noto Kufi Arabic',
-    value: 'fontKufi',
-  },
+  { name: 'Noto Sans Arabic', value: 'font-arabic' },
+  { name: 'IBM Plex Sans Arabic', value: 'fontIbm' },
+  { name: 'Noto Kufi Arabic', value: 'fontKufi' },
 ]
 
 export const ThemeSwitcher = () => {

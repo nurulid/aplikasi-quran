@@ -1,6 +1,6 @@
 'use client';
 
-import { BookOpen, PlaySquareIcon, Settings2 } from 'lucide-react';
+import { BookOpen, PlayCircle, Settings2 } from 'lucide-react';
 import SurahList from './surahList';
 import { ThemeSwitcher } from '../ui/themeSwitcher';
 
@@ -11,21 +11,24 @@ const Navigation = () => {
         <input id="my-drawer" type="checkbox" className="drawer-toggle " />
         <label
           htmlFor="my-drawer"
-          className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full"
+          className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full py-2"
         >
           <BookOpen />
+        <span className="btm-nav-label">Surah</span>
         </label>
       </button>
       <button className="text-primary group" disabled>
-        <PlaySquareIcon />
+        <PlayCircle />
+        {/* <span className="btm-nav-label text-xs">Audio</span> */}
       </button>
       <button className="text-primary group">
         <input id="setting" type="checkbox" className="drawer-toggle " />
         <label
           htmlFor="setting"
-          className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full"
+          className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full py-2"
         >
           <Settings2 />
+          <span className="btm-nav-label">Pengaturan</span>
         </label>
       </button>
     </div>
