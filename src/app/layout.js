@@ -33,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <Provider>
-      <html lang="en" >
+      <html lang="en" data-theme="lemonade">
         <body className={`${inter.className} ${notoArabic.variable} ${ibmArabic.variable} ${kufiArabic.variable}`}>
           {children}
         </body>

@@ -10,6 +10,7 @@ export const ThemeSwitcher = () => {
 
   const toggleTheme = (theme) => {
     changeTheme(theme);
+    document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   };
 
