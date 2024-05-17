@@ -6,15 +6,15 @@ import { ThemeSwitcher } from '../ui/themeSwitcher';
 
 const Navigation = () => {
   return (
-    <div className="btm-nav bg-base-100 z-[10] h-12 max-w-4xl w-full mx-auto fixed bottom-0 sm:bottom-4 shadow-md">
+    <div className="btm-nav bg-base-100 z-[10] h-14 max-w-4xl w-full mx-auto fixed bottom-0 sm:bottom-4 shadow-md">
       <button className="text-primary group">
         <input id="my-drawer" type="checkbox" className="drawer-toggle " />
         <label
           htmlFor="my-drawer"
-          className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full py-2"
+          className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full py-2 flex-nowrap"
         >
           <BookOpen />
-        <span className="btm-nav-label">Surah</span>
+        <span className="btm-nav-label text-xs">Surah</span>
         </label>
       </button>
       <button className="text-primary group" disabled>
@@ -25,10 +25,10 @@ const Navigation = () => {
         <input id="setting" type="checkbox" className="drawer-toggle " />
         <label
           htmlFor="setting"
-          className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full py-2"
+          className="drawer-button btn bg-transparent border-none hover:bg-transparent group-hover:text-primary w-full py-2 flex-nowrap"
         >
           <Settings2 />
-          <span className="btm-nav-label">Pengaturan</span>
+          <span className="btm-nav-label text-xs">Pengaturan</span>
         </label>
       </button>
     </div>
