@@ -1,5 +1,6 @@
-import { Inter, Noto_Sans_Arabic } from 'next/font/google';
+import { Inter, Noto_Sans_Arabic, IBM_Plex_Sans_Arabic, Noto_Kufi_Arabic } from 'next/font/google';
 import '@/styles/globals.css';
+import { Provider } from '@/components/provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -11,6 +12,18 @@ const notoArabic = Noto_Sans_Arabic({
   weight: ['300', '400'],
 });
 
+const ibmArabic = IBM_Plex_Sans_Arabic({
+  subsets: ['arabic'],
+  variable: '--font-ibm-arabic',
+  weight: ['300', '400'],
+});
+
+const kufiArabic = Noto_Kufi_Arabic({
+  subsets: ['arabic'],
+  variable: '--font-kufi-arabic',
+  weight: ['300', '400'],
+});
+
 export const metadata = {
   title: "Aplikasi Qur'an",
   description:
@@ -19,10 +32,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="lemonade">
-      <body className={`${inter.className} ${notoArabic.variable}`}>
-        {children}
-      </body>
-    </html>
+    <Provider>
+      <html lang="en" >
+        <body className={`${inter.className} ${notoArabic.variable} ${ibmArabic.variable} ${kufiArabic.variable}`}>
+          {children}
+        </body>
+      </html>
+    </Provider>
   );
 }

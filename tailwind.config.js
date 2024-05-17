@@ -9,14 +9,10 @@ module.exports = {
       xs: '475px',
       ...defaultTheme.screens,
     },
-    extend: {
-      colors: {
-        lemonade: '#f8fdef',
-      },
-    },
+    extend: {},
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ['light', 'dark', 'lemonade'],
+    themes: ['lemonade','forest', 'dim', 'lofi'],
   },
 };
