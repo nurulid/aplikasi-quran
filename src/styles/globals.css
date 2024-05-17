@@ -51,13 +51,13 @@
   }
   
   .progress-wheel .bg {
-    stroke: #000;
     opacity: 0.2;
+    @apply stroke-primary;
   }
   
   .progress-wheel .progress {
-    stroke: #000;
     stroke-dasharray: 0, 1;
+    @apply stroke-primary;
   }
 
   .paragraph {

@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { ScrollProgress } from '@/components/quran/scrollProgress';
+import { ScrollProgress } from '@/components/ui/scrollProgress';
 import { VerseNumberList } from '@/components/quran/verseNumberList';
 import { VerseList } from '@/components/quran/verseList';
 
