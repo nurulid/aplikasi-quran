@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { wrapInParagraphs } from '@/lib/utils';
 import { Modal } from '@/components/ui/modal';
 import { AudioPlayer } from '../ui/audioPlayer';
+import { useTheme } from '@/hooks/useTheme';
 
 const TafsirHeader = ({ surah, ayah, source }) => {
   return (
@@ -26,6 +27,7 @@ export const VerseList = ({ surah, tafsirSurah }) => {
 
   const surahRecitations = surah.recitations;
   const surahAudio = surah.recitations[audio].audio_url;
+  const { font } = useTheme();
 
   const handleModal = (verse) => {
     setSelectedVerse(verse);
@@ -66,7 +68,7 @@ export const VerseList = ({ surah, tafsirSurah }) => {
             id={verse.number}
             className="py-5 mb-5 border-b border-primary/10"
           >
-            <p className="font-arabic mb-6 relative pl-5">
+            <p className={[font, "mb-6 relative pl-5"].join(" ")}>
               <span className="pl-2 inline">{verse.text}</span>
               <span className="text-base sm:text-xl size-[30px] text-center leading-[30px] border border-gray-400 rounded-full inline-block">
                 {numberToArabic(verse.number)}

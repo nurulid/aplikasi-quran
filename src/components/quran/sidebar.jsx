@@ -55,7 +55,7 @@ export async function Sidebar() {
         </div>
       </div>
 
-      <div className="drawer z-10 drawer-end">
+      <div className="drawer z-10">
         <input id="setting" type="checkbox" className="drawer-toggle" />
         <div className="drawer-side">
           <label
