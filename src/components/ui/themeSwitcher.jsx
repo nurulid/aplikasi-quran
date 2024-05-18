@@ -39,7 +39,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <>
-      <h3 className="mb-3 text-lg">Ganti Tema:</h3>
+      <h3 className="mb-3 text-lg">Ganti Warna Tema:</h3>
       <div className="flex gap-3 mb-8">
         {themeColors.map((theme) => (
           <button
@@ -53,7 +53,7 @@ export const ThemeSwitcher = () => {
         ))}
       </div>
 
-      <h3 className="mb-3 text-lg">Ganti Font Arab:</h3>
+      <h3 className="mb-3 text-lg">Ganti Huruf Arab:</h3>
       <div className="flex flex-col gap-2 mb-8">
         {arabFonts.map(({ name, value }, i) => (
           <button
