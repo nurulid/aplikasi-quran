@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { ScrollProgress } from '@/components/ui/scrollProgress';
 import { VerseNumberList } from '@/components/quran/verseNumberList';
 import { VerseList } from '@/components/quran/verseList';
+import Link from 'next/link';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const dynamicParams = true;
 
@@ -34,15 +36,33 @@ async function getSurah(id) {
 }
 
 export default async function Page({ params }) {
+  const surahNumber = +params.id;
   const surah = await getSurah(params.id);
+  const surahNext = await getSurah(surahNumber+1);
+  const surahPrev = await getSurah(surahNumber-1);
   const tafsirSurah = surah.tafsir.id.kemenag;
 
+  // console.log(surahNext);
   return (
     <>
       <ScrollProgress isOverflowScroll={true} />
       <div className="mb-2 md:mb-4 p-5 text-center">
         <h3 className="text-xl md:text-2xl mb-0 md:mb-1">{surah.name}</h3>
-        <p className="text-sm sm:text-base text-gray-400">{surah.name_translations.id}</p>
+        <p className="text-sm sm:text-base text-gray-400">
+          {surah.name_translations.id}
+        </p>
+        <div className="flex justify-between text-sm">
+          {surahNumber > 1 && (
+            <Link href={`/my-quran/${surahNumber - 1}`}>
+              <ChevronLeft size={18} className='inline-block text-primary'/> <span className='text-gray-400'>({surahPrev.name})</span>
+            </Link>
+          )}
+          {surahNumber < 114 && (
+            <Link href={`/my-quran/${surahNumber + 1}`}>
+            <span className='text-gray-400'>({surahNext.name})</span> <ChevronRight size={18} className='inline-block text-primary'/>
+            </Link>
+          )}
+        </div>
       </div>
       <VerseNumberList verses={surah.verses} />
       <VerseList surah={surah} tafsirSurah={tafsirSurah} />
