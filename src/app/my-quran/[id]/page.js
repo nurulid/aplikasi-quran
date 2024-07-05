@@ -51,7 +51,7 @@ export default async function Page({ params }) {
         <p className="text-sm sm:text-base text-gray-400">
           {surah.name_translations.id}
         </p>
-        <div className="flex justify-between text-sm">
+        <div className="flex justify-between text-sm mt-2">
           {surahNumber > 1 && (
             <Link href={`/my-quran/${surahNumber - 1}`}>
               <ChevronLeft size={18} className='inline-block text-primary'/> <span className='text-gray-400'>Surah {surahPrev.name}</span>
