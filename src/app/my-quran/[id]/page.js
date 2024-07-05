@@ -54,12 +54,12 @@ export default async function Page({ params }) {
         <div className="flex justify-between text-sm">
           {surahNumber > 1 && (
             <Link href={`/my-quran/${surahNumber - 1}`}>
-              <ChevronLeft size={18} className='inline-block text-primary'/> <span className='text-gray-400'>({surahPrev.name})</span>
+              <ChevronLeft size={18} className='inline-block text-primary'/> <span className='text-gray-400'>Surah {surahPrev.name}</span>
             </Link>
           )}
           {surahNumber < 114 && (
             <Link href={`/my-quran/${surahNumber + 1}`}>
-            <span className='text-gray-400'>({surahNext.name})</span> <ChevronRight size={18} className='inline-block text-primary'/>
+            <span className='text-gray-400'>Surah {surahNext.name}</span> <ChevronRight size={18} className='inline-block text-primary'/>
             </Link>
           )}
         </div>
