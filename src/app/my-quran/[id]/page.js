@@ -38,11 +38,10 @@ async function getSurah(id) {
 export default async function Page({ params }) {
   const surahNumber = +params.id;
   const surah = await getSurah(params.id);
-  const surahNext = await getSurah(surahNumber+1);
-  const surahPrev = await getSurah(surahNumber-1);
+  const surahNext = surahNumber < 114 && await getSurah(surahNumber+1);
+  const surahPrev = surahNumber > 1 && await getSurah(surahNumber-1);
   const tafsirSurah = surah.tafsir.id.kemenag;
 
-  // console.log(surahNext);
   return (
     <>
       <ScrollProgress isOverflowScroll={true} />
@@ -51,7 +50,10 @@ export default async function Page({ params }) {
         <p className="text-sm sm:text-base text-gray-400">
           {surah.name_translations.id}
         </p>
-        <div className="flex justify-between text-sm mt-2">
+        <div className={[
+          "flex text-sm mt-2",
+          surahNumber > 1 ? "justify-between" : "justify-end"
+          ].join(" ")}>
           {surahNumber > 1 && (
             <Link href={`/my-quran/${surahNumber - 1}`}>
               <ChevronLeft size={18} className='inline-block text-primary'/> <span className='text-gray-400'>Surah {surahPrev.name}</span>
