@@ -41,7 +41,7 @@ export const VerseList = ({ surah, tafsirSurah }) => {
  
   return (
     <>
-      <div className="flex flex-wrap justify-center py-2 gap-x-2 gap-y-1 text-xs">
+      <div className="flex overflow-auto py-2 px-2 gap-x-2 gap-y-1 text-xs">
         {surahRecitations.map((item, id) => (
           <span
             key={id}
@@ -57,7 +57,7 @@ export const VerseList = ({ surah, tafsirSurah }) => {
         ))}
       </div>
       <motion.div
-        className="scroll-progress-target absolute h-[calc(100%-204px)] w-full overflow-scroll scroll-smooth p-5 md:p-8"
+        className="scroll-progress-target absolute h-[calc(100%-204px)] w-full overflow-scroll scroll-smooth p-5 md:p-8 pb-14 sm:pb-0"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
