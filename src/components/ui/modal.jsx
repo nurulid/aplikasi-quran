@@ -7,7 +7,12 @@ export const Modal = ({
   closeModal,
   modalHeader,
 }) => {
-  // console.log(verse);
+  // Replace newline characters with HTML line breaks
+  const formattedText = content.replace(/\n\n/g, '<br/><br/>').replace(/\n/g, '<br/>');
+
+  // console.log('Original Content:', content);
+  // console.log('Formatted Content:', formattedText);
+
   return (
     <>
       <dialog className="modal" open={modalOpen}>
@@ -27,12 +32,12 @@ export const Modal = ({
           </form>
           <div>{modalHeader}</div>
           {innerHTML ? (
-          <div
-            className="py-4 border-y mt-4 border-dashed border-primary/20"
-            dangerouslySetInnerHTML={{
-              __html: content,
-            }}
-          />
+            <div
+              className="py-4 border-y mt-4 border-dashed border-primary/20"
+              dangerouslySetInnerHTML={{
+                __html: formattedText,
+              }}
+            />
           ) : (
             <div>{content}</div>
           )}

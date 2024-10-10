@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { numberToArabic } from 'number-to-arabic';
 import { useState } from 'react';
-import { wrapInParagraphs } from '@/lib/utils';
+// import { wrapInParagraphs } from '@/lib/utils'; don't need this anymore
 import { Modal } from '@/components/ui/modal';
 import { AudioPlayer } from '../ui/audioPlayer';
 import { useTheme } from '@/hooks/useTheme';
@@ -36,9 +36,9 @@ export const VerseList = ({ surah, tafsirSurah }) => {
 
   const handleSurahAudio = (id) => {
     setAudio(id);
-    setAutoPlay(true)
+    setAutoPlay(true);
   };
- 
+
   return (
     <>
       <div className="flex overflow-auto py-2 px-2 gap-x-2 gap-y-1 text-xs">
@@ -62,39 +62,43 @@ export const VerseList = ({ surah, tafsirSurah }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        {surah.verses.map((verse) => (
-          <div
-            key={verse.number}
-            id={verse.number}
-            className="py-5 mb-5 border-b border-primary/10"
-          >
-            <p className={[font, "mb-6 relative pl-5"].join(" ")}>
-              <span className="pl-2 inline">{verse.text}</span>
-              <span className="text-base sm:text-xl size-[30px] text-center leading-[30px] border border-gray-400 rounded-full inline-block">
-                {numberToArabic(verse.number)}
-              </span>
-            </p>
-            <p className="text-gray-400 leading-7 mb-3">
-              <span className="text-sm text-gray-500 -translate-y-[1px] inline-block mr-1">
-                {verse.number}.
-              </span>
-              {verse.translation_id}
-            </p>
-            <button
-              className="btn btn-outline btn-sm"
-              onClick={() => handleModal(verse)}
+        {surah.verses.map((verse) => {
+          // console.log(surah)
+          // console.log('Selected Verse Content:', tafsirSurah.text[selectedVerse?.number]);
+          return (
+            <div
+              key={verse.number}
+              id={verse.number}
+              className="py-5 mb-5 border-b border-primary/10"
             >
-              Tafsir
-            </button>
-          </div>
-        ))}
+              <p className={[font, 'mb-6 relative pl-5'].join(' ')}>
+                <span className="pl-2 inline">{verse.text}</span>
+                <span className="text-base sm:text-xl size-[30px] text-center leading-[30px] border border-gray-400 rounded-full inline-block">
+                  {numberToArabic(verse.number)}
+                </span>
+              </p>
+              <p className="text-gray-400 leading-7 mb-3">
+                <span className="text-sm text-gray-500 -translate-y-[1px] inline-block mr-1">
+                  {verse.number}.
+                </span>
+                {verse.translation_id}
+              </p>
+              <button
+                className="btn btn-outline btn-sm"
+                onClick={() => handleModal(verse)}
+              >
+                Tafsir
+              </button>
+            </div>
+          );
+        })}
       </motion.div>
 
-      <AudioPlayer url={surahAudio} autoPlay={autoPlay}/>
+      <AudioPlayer url={surahAudio} autoPlay={autoPlay} />
 
       {modalOpen && (
         <Modal
-          content={wrapInParagraphs(tafsirSurah.text[selectedVerse?.number])}
+          content={tafsirSurah.text[selectedVerse?.number]}
           innerHTML={true}
           modalOpen={modalOpen}
           closeModal={() => setModalOpen(false)}
