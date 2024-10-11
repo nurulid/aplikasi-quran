@@ -66,7 +66,7 @@ export async function Sidebar() {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="menu w-80 min-h-full bg-base-100 relative p-4">
+          <div className="menu w-80 h-full bg-base-100 relative p-4">
             {/* Sidebar content here */}
             <ThemeSwitcher />
           </div>

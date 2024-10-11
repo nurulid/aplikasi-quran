@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 export const SurahContext = createContext();
 
@@ -26,3 +26,13 @@ export const SurahProvider = ({ children }) => {
     </SurahContext.Provider>
   );
 };
+
+export const useSurah = () => {
+  const context = useContext(SurahContext);
+
+  if (context === undefined) {
+    throw new Error("useSurah() must be used within a SurahProvider");
+  }
+
+  return context;
+}

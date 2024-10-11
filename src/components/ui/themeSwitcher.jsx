@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useTheme } from '@/hooks/useTheme';
+import Link from 'next/link';
+import { Github } from 'lucide-react';
 
 const themeColors = ['lemonade', 'forest', 'dim', 'lofi'];
 const arabFonts = [
@@ -44,39 +46,53 @@ export const ThemeSwitcher = () => {
   }, []);
 
   return (
-    <>
-      <h3 className="mb-3 text-lg">Ganti Warna Tema:</h3>
-      <div className="flex gap-3 mb-8">
-        {themeColors.map((theme) => (
-          <button
-            className={[
-              'p-2 border hover:opacity-85 transition-all rounded capitalize',
-              activeTheme === theme ? 'border-green-400' : '',
-            ].join(' ')}
-            key={theme}
-            onClick={() => toggleTheme(theme)}
-            data-theme={theme}
-          >
-            {theme}
-          </button>
-        ))}
+    <div className="space-y-8 flex flex-col h-full">
+      <div className="space-y-3">
+        <h3 className="text-lg">Ganti Warna Tema:</h3>
+        <div className="flex gap-3">
+          {themeColors.map((theme) => (
+            <button
+              className={[
+                'p-2 border hover:opacity-85 transition-all rounded capitalize',
+                activeTheme === theme ? 'border-green-400' : '',
+              ].join(' ')}
+              key={theme}
+              onClick={() => toggleTheme(theme)}
+              data-theme={theme}
+            >
+              {theme}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <h3 className="mb-3 text-lg">Ganti Huruf Arab:</h3>
-      <div className="flex flex-col gap-2 mb-8">
-        {arabFonts.map(({ name, value }, i) => (
-          <button
-            className={[
-              'p-2 border hover:opacity-85 transition-all rounded capitalize',
-              activeFont === value ? 'border-green-400' : '',
-            ].join(' ')}
-            key={i}
-            onClick={() => toggleFont(value)}
-          >
-            {name}
-          </button>
-        ))}
+      <div className="space-y-3">
+        <h3 className="text-lg">Ganti Huruf Arab:</h3>
+        <div className="flex flex-col gap-2">
+          {arabFonts.map(({ name, value }, i) => (
+            <button
+              className={[
+                'p-2 border hover:opacity-85 transition-all rounded capitalize',
+                activeFont === value ? 'border-green-400' : '',
+              ].join(' ')}
+              key={i}
+              onClick={() => toggleFont(value)}
+            >
+              {name}
+            </button>
+          ))}
+        </div>
       </div>
-    </>
+      <div className="h-8" />
+      <div className="text-center text-xs">
+        <Link
+          href="https://github.com/nurulid/aplikasi-quran"
+          target="_blank"
+          className="underline text-primary"
+        >
+          <Github className="inline-block mr-1" size={14} /> Source code
+        </Link>
+      </div>
+    </div>
   );
 };
