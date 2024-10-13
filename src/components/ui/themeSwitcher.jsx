@@ -85,13 +85,16 @@ export const ThemeSwitcher = () => {
       </div>
       <div className="h-8" />
       <div className="text-center text-xs">
-        <Link
-          href="https://github.com/nurulid/aplikasi-quran"
-          target="_blank"
-          className="underline text-primary"
-        >
-          <Github className="inline-block mr-1" size={14} /> Source code
-        </Link>
+        <p>
+          Made with 💚 by{' '}
+          <Link
+            href="https://nurulid.space/"
+            target="_blank"
+            className="text-primary"
+          >
+            Nurul ID
+          </Link>
+        </p>
       </div>
     </div>
   );
