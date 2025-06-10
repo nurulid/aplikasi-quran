@@ -1,6 +1,7 @@
 import { Inter, Noto_Sans_Arabic, IBM_Plex_Sans_Arabic, Noto_Kufi_Arabic } from 'next/font/google';
 import '@/styles/globals.css';
 import { Provider } from '@/components/provider';
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
       <html lang="en" data-theme="lemonade">
         <body className={`${inter.className} ${notoArabic.variable} ${ibmArabic.variable} ${kufiArabic.variable}`}>
           {children}
+          <Analytics />
         </body>
       </html>
     </Provider>
