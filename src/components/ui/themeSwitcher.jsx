@@ -88,7 +88,7 @@ export const ThemeSwitcher = () => {
         <p>
           Made with 💚 by{' '}
           <Link
-            href="https://nurulid.space/"
+            href="https://nurrul.com/"
             target="_blank"
             className="text-primary"
           >
