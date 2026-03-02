@@ -1,0 +1,1 @@
+export const APLIKASI_MUSLIM_LINK = 'https://aplikasi-muslim.nurulinsanid.workers.dev/';

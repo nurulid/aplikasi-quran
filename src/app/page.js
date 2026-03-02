@@ -1,10 +1,12 @@
+import { APLIKASI_MUSLIM_LINK } from '@/lib/constants';
 import { SquareArrowOutUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Home() {
+export default async function Home() {
+  const appMuslimLink = APLIKASI_MUSLIM_LINK;
+
   return (
-    // todo: update content
     // Show case the new Aplikasi Muslim project
     <main className="p-5 max-w-2xl mx-auto mt-0 md:mt-10">
       <h1 className="text-3xl font-bold mb-4">
@@ -19,11 +21,11 @@ export default function Home() {
         updates.
       </p>
       <Link
-        href="https://aplikasi-muslim-seven.vercel.app/"
+        href={appMuslimLink}
         className="text-green-600 underline font-semibold"
       >
         <Image
-          src="/aplikasi-muslim.jpeg"
+          src="/aplikasi-muslim.webp"
           alt="Aplikasi Muslim"
           width={600}
           height={300}

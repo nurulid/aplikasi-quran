@@ -1,6 +1,9 @@
+import { APLIKASI_MUSLIM_LINK } from "@/lib/constants";
 import Link from "next/link";
 
-export default function QuranLayout({ children }) {
+export default async function QuranLayout({ children }) {
+  const appMuslimLink = APLIKASI_MUSLIM_LINK;
+
   return (
     <main className="h-full cw-full max-w-[1440px] mx-auto">
       <div className="p-4 text-center bg-blue-600/80 hover:bg-blue-600 text-white rounded-lg my-4">
@@ -8,7 +11,7 @@ export default function QuranLayout({ children }) {
           Check the new version at{' '}
           <Link
             className="underline font-bold"
-            href="https://aplikasi-muslim-seven.vercel.app/"
+            href={appMuslimLink}
           >
             Aplikasi Muslim
           </Link>
